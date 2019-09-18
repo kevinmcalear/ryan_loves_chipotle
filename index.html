@@ -75,5 +75,64 @@
       burrito.style.top = `${e.y-200}px`
       burrito.style.left = `${e.x-200}px`
     })
+    const makeAPoohHandler = (e) => {
+      const pooh = document.createElement('div')
+      pooh.innerText = '💩'
+      pooh.style.position = 'fixed'
+      document.body.append(pooh)
+      pooh.style.top = `${e.y}px`
+      pooh.style.left = `${e.x}px`
+      pooh.animate([
+        {
+          fontSize: 0,
+          transform: `rotate(0deg)`
+        },
+        {
+          fontSize: '50px',
+          transform: 'rotate(30deg)'
+        },
+        {
+          fontSize: '50px',
+          transform: 'rotate(0deg)'
+        },
+        {
+          fontSize: '50px',
+          transform: 'rotate(30deg)'
+        },
+        {
+          fontSize: '50px',
+          transform: 'rotate(0deg)'
+        },
+        {
+          fontSize: '100px',
+          transform: 'rotate(0deg)'
+        },
+        {
+          fontSize: '150px',
+          transform: 'rotate(30deg)'
+        },
+        {
+          fontSize: '150px',
+          transform: 'rotate(0deg)'
+        },
+        {
+          fontSize: '150px',
+          transform: 'rotate(30deg)'
+        },
+        {
+          fontSize: '200px',
+          transform: 'rotate(360deg)'
+        },
+        {
+          fontSize: 0,
+          transform: 'rotate(-720deg)'
+        }
+        ], {
+          duration: 10000,
+          iterations: Infinity
+      })
+    }
+    document.addEventListener('click', makeAPoohHandler)
+    document.addEventListener('touchstart', makeAPoohHandler)
   </script>
 </html>
