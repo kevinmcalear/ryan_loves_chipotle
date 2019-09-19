@@ -6,6 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no"
     />
+
     <style>
       body {
         text-align: center;
@@ -69,10 +70,48 @@
           transform: rotate(2deg);
         }
       }
+      @-webkit-keyframes bigWiggle {
+        0% {
+          -webkit-transform: rotate(30deg);
+        }
+        50% {
+          -webkit-transform: rotate(-30deg);
+        }
+        100% {
+          -webkit-transform: rotate(30deg);
+        }
+      }
 
+      @-moz-keyframes bigWiggle {
+        0% {
+          -moz-transform: rotate(30deg);
+        }
+        50% {
+          -moz-transform: rotate(-30deg);
+        }
+        100% {
+          -moz-transform: rotate(30deg);
+        }
+      }
+
+      @keyframes bigWiggle {
+        0% {
+          transform: rotate(30deg);
+        }
+        50% {
+          transform: rotate(-30deg);
+        }
+        100% {
+          transform: rotate(30deg);
+        }
+      }
       #chipotle {
         -webkit-animation: wiggle 2s infinite;
         -moz-animation: wiggle 2s infinite;
+      }
+      .pooh {
+        -webkit-animation: bigWiggle 4s infinite;
+        -moz-animation: bigWiggle 4s infinite;
       }
 
       @media only screen and (max-width: 600px) {
@@ -108,6 +147,7 @@
       pooh.style.position = "fixed";
       document.body.append(pooh);
       if (e.targetTouches) {
+        pooh.className = "pooh";
         pooh.style.top = `${e.targetTouches[0].clientY}px`;
         pooh.style.left = `${e.targetTouches[0].clientX}px`;
       } else {
