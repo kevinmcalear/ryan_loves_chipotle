@@ -148,6 +148,7 @@
       document.body.append(pooh);
       if (e.targetTouches) {
         pooh.className = "pooh";
+        pooh.style.fontSize = "50px";
         pooh.style.top = `${e.targetTouches[0].clientY}px`;
         pooh.style.left = `${e.targetTouches[0].clientX}px`;
       } else {
