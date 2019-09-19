@@ -75,6 +75,7 @@
       @media only screen and (max-width: 600px) {
         #ryan {
           background-position: center;
+          height: 90vh;
         }
       }
     </style>
@@ -104,8 +105,13 @@
       pooh.innerText = "💩";
       pooh.style.position = "fixed";
       document.body.append(pooh);
-      pooh.style.top = `${e.y}px`;
-      pooh.style.left = `${e.x}px`;
+      if (e.targetTouches) {
+        pooh.style.top = `${e.targetTouches[0].clientY}px`;
+        pooh.style.left = `${e.targetTouches[0].clientX}px`;
+      } else {
+        pooh.style.top = `${e.y}px`;
+        pooh.style.left = `${e.x}px`;
+      }
       pooh.animate(
         [
           {
@@ -170,7 +176,14 @@
         }
       );
     };
-    document.addEventListener("click", makeAPoohHandler);
-    document.addEventListener("touchstart", makeAPoohHandler);
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      document.addEventListener("touchstart", makeAPoohHandler);
+    } else {
+      document.addEventListener("click", makeAPoohHandler);
+    }
   </script>
 </html>
