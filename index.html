@@ -92,14 +92,6 @@
     burrito.style.width = "400px";
     burrito.style.position = "fixed";
     document.body.append(burrito);
-    document.addEventListener("mousemove", e => {
-      burrito.style.top = `${e.y - 200}px`;
-      burrito.style.left = `${e.x - 200}px`;
-    });
-    document.addEventListener("touchmove", e => {
-      burrito.style.top = `${e.y - 200}px`;
-      burrito.style.left = `${e.x - 200}px`;
-    });
     const makeAPoohHandler = e => {
       const pooh = document.createElement("div");
       pooh.innerText = "💩";
@@ -181,8 +173,16 @@
         navigator.userAgent
       )
     ) {
+      document.addEventListener("touchmove", e => {
+        burrito.style.top = `${e.targetTouches[0].clientY - 200}px`;
+        burrito.style.left = `${e.targetTouches[0].clientX - 200}px`;
+      });
       document.addEventListener("touchstart", makeAPoohHandler);
     } else {
+      document.addEventListener("mousemove", e => {
+        burrito.style.top = `${e.y - 200}px`;
+        burrito.style.left = `${e.x - 200}px`;
+      });
       document.addEventListener("click", makeAPoohHandler);
     }
   </script>
