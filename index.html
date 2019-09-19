@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
       body {
         text-align: center;
@@ -10,42 +10,66 @@
         cursor: none;
         margin: 0;
         padding: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
       }
       #ryan {
         margin: 0 auto;
         position: relative;
         height: 100vh;
         display: block;
-        background-image: url('https://i.imgur.com/6yRiBwU.jpg');
+        background-image: url("https://i.imgur.com/6yRiBwU.jpg");
         background-size: cover;
       }
       #ryan:after {
-        content: '';
+        content: "";
         position: absolute;
-        top: 0; left: 0; bottom: 0; right: 0;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
         background: radial-gradient(circle, transparent 50%, black 80%);
       }
       @-webkit-keyframes wiggle {
-          0% {-webkit-transform:rotate(2deg);}
-          50% {-webkit-transform:rotate(-2deg);}
-          100% {-webkit-transform:rotate(2deg);}
+        0% {
+          -webkit-transform: rotate(2deg);
+        }
+        50% {
+          -webkit-transform: rotate(-2deg);
+        }
+        100% {
+          -webkit-transform: rotate(2deg);
+        }
       }
 
       @-moz-keyframes wiggle {
-          0% {-moz-transform:rotate(2deg);}
-          50% {-moz-transform:rotate(-2deg);}
-          100% {-moz-transform:rotate(2deg);}
+        0% {
+          -moz-transform: rotate(2deg);
+        }
+        50% {
+          -moz-transform: rotate(-2deg);
+        }
+        100% {
+          -moz-transform: rotate(2deg);
+        }
       }
 
       @keyframes wiggle {
-          0% {transform:rotate(2deg);}
-          50% {transform:rotate(-2deg);}
-          100% {transform:rotate(2deg);}
+        0% {
+          transform: rotate(2deg);
+        }
+        50% {
+          transform: rotate(-2deg);
+        }
+        100% {
+          transform: rotate(2deg);
+        }
       }
 
       #chipotle {
-          -webkit-animation: wiggle 2s infinite;
-          -moz-animation: wiggle 2s infinite;
+        -webkit-animation: wiggle 2s infinite;
+        -moz-animation: wiggle 2s infinite;
       }
 
       @media only screen and (max-width: 600px) {
@@ -60,79 +84,82 @@
     <div id="ryan"></div>
   </body>
   <script>
-    const burrito = document.createElement('img')
-    burrito.id = "chipotle"
-    burrito.src = 'https://i.imgur.com/A0hyFwm.png'
-    burrito.style.height = '400px'
-    burrito.style.width = '400px'
-    burrito.style.position = 'fixed'
-    document.body.append(burrito)
-    document.addEventListener('mousemove', (e) => {
-      burrito.style.top = `${e.y-200}px`
-      burrito.style.left = `${e.x-200}px`
-    })
-    document.addEventListener('touchmove', (e) => {
-      burrito.style.top = `${e.y-200}px`
-      burrito.style.left = `${e.x-200}px`
-    })
-    const makeAPoohHandler = (e) => {
-      const pooh = document.createElement('div')
-      pooh.innerText = '💩'
-      pooh.style.position = 'fixed'
-      document.body.append(pooh)
-      pooh.style.top = `${e.y}px`
-      pooh.style.left = `${e.x}px`
-      pooh.animate([
+    const burrito = document.createElement("img");
+    burrito.id = "chipotle";
+    burrito.src = "https://i.imgur.com/A0hyFwm.png";
+    burrito.style.height = "400px";
+    burrito.style.width = "400px";
+    burrito.style.position = "fixed";
+    document.body.append(burrito);
+    document.addEventListener("mousemove", e => {
+      burrito.style.top = `${e.y - 200}px`;
+      burrito.style.left = `${e.x - 200}px`;
+    });
+    document.addEventListener("touchmove", e => {
+      burrito.style.top = `${e.y - 200}px`;
+      burrito.style.left = `${e.x - 200}px`;
+    });
+    const makeAPoohHandler = e => {
+      const pooh = document.createElement("div");
+      pooh.innerText = "💩";
+      pooh.style.position = "fixed";
+      document.body.append(pooh);
+      pooh.style.top = `${e.y}px`;
+      pooh.style.left = `${e.x}px`;
+      pooh.animate(
+        [
+          {
+            fontSize: 0,
+            transform: `rotate(0deg)`
+          },
+          {
+            fontSize: "50px",
+            transform: "rotate(30deg)"
+          },
+          {
+            fontSize: "50px",
+            transform: "rotate(0deg)"
+          },
+          {
+            fontSize: "50px",
+            transform: "rotate(30deg)"
+          },
+          {
+            fontSize: "50px",
+            transform: "rotate(0deg)"
+          },
+          {
+            fontSize: "100px",
+            transform: "rotate(0deg)"
+          },
+          {
+            fontSize: "150px",
+            transform: "rotate(30deg)"
+          },
+          {
+            fontSize: "150px",
+            transform: "rotate(0deg)"
+          },
+          {
+            fontSize: "150px",
+            transform: "rotate(30deg)"
+          },
+          {
+            fontSize: "200px",
+            transform: "rotate(360deg)"
+          },
+          {
+            fontSize: 0,
+            transform: "rotate(-720deg)"
+          }
+        ],
         {
-          fontSize: 0,
-          transform: `rotate(0deg)`
-        },
-        {
-          fontSize: '50px',
-          transform: 'rotate(30deg)'
-        },
-        {
-          fontSize: '50px',
-          transform: 'rotate(0deg)'
-        },
-        {
-          fontSize: '50px',
-          transform: 'rotate(30deg)'
-        },
-        {
-          fontSize: '50px',
-          transform: 'rotate(0deg)'
-        },
-        {
-          fontSize: '100px',
-          transform: 'rotate(0deg)'
-        },
-        {
-          fontSize: '150px',
-          transform: 'rotate(30deg)'
-        },
-        {
-          fontSize: '150px',
-          transform: 'rotate(0deg)'
-        },
-        {
-          fontSize: '150px',
-          transform: 'rotate(30deg)'
-        },
-        {
-          fontSize: '200px',
-          transform: 'rotate(360deg)'
-        },
-        {
-          fontSize: 0,
-          transform: 'rotate(-720deg)'
-        }
-        ], {
           duration: 10000,
           iterations: Infinity
-      })
-    }
-    document.addEventListener('click', makeAPoohHandler)
-    document.addEventListener('touchstart', makeAPoohHandler)
+        }
+      );
+    };
+    document.addEventListener("click", makeAPoohHandler);
+    document.addEventListener("touchstart", makeAPoohHandler);
   </script>
 </html>
